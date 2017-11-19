@@ -96,7 +96,7 @@
                 </executions>
                 <configuration>
                     <!-- executable>maven</executable-->
-                    <mainClass>edu.jsfonspring.Application</mainClass>
+                    <mainClass>jsfonspring.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>

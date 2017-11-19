@@ -1,4 +1,4 @@
-package edu.jsfonspring;
+package jsfonspring;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
