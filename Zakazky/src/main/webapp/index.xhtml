@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:prime="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:debug/>
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>#{menuController.title}</title>
+        <style>
+            body {font-size:18px; }
+        </style>
+    </h:head>
+    <h:body>
+        <h:outputFormat value="User: {0}">
+            <f:param value="#{loginBean.logged}"/>
+        </h:outputFormat>
+        <prime:panel header="Zakazky" >
+            <c:forEach var="z" items="#{zakazky.vsechny}">
+                <h:outputText value="#{z}"/>
+                <h:button value="Detail" outcome="detailyZakazky">
+                    <f:param name="id" value="#{z.id}"/>
+                </h:button>
+                <br/>
+            </c:forEach>
+        </prime:panel>
+        <h:button value="Login" outcome="login" rendered="#{loginBean.anonym}"/>
+        <h:form>
+            <h:commandButton value="Logout" rendered="#{not loginBean.anonym}"
+                             action="#{loginBean.logout()}"/> 
+        </h:form>
+        
+    </h:body>
+</html>
