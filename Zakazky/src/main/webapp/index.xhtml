@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3c.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 
     <h:head>
@@ -15,7 +16,11 @@
         </h:panelGrid>
 
         <c:forEach var="z" items="#{indexBean.zakazky}">
-            <h:outputText value="#{z}"/><br/>
+            <h:outputText value="#{z}"/>
+            <h:link value="Details" outcome="zakazka">
+                <f:param name="id" value="#{z.id}"/>
+            </h:link>
+            <br/>
         </c:forEach>
         <h:panelGrid columns="2">
             <h:form>

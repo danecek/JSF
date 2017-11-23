@@ -19,21 +19,25 @@ public class ZakazkyDAO {
     public Collection<Zakazka> vsechny() {
         return zakazky.values();
     }
-    
+
     public void vytvor(String popis) {
-       int id = 1;
-       if (!zakazky.isEmpty())
-           id = zakazky.lastKey() + 1;
+        int id = 1;
+        if (!zakazky.isEmpty()) {
+            id = zakazky.lastKey() + 1;
+        }
         Zakazka z = new Zakazka(id, popis);
-       zakazky.put(z.getId(), z);
-        
+        zakazky.put(z.getId(), z);
+
     }
-    
+
     @PostConstruct
     void init() {
         vytvor("mala");
         vytvor("velka");
     }
-    
-    
+
+    public Zakazka get(int id) {
+        return zakazky.get(id);
+    }
+
 }
