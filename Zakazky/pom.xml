@@ -96,7 +96,7 @@
                 </executions>
                 <configuration>
                     <!-- executable>maven</executable-->
-                    <mainClass>jsfonspring.Application</mainClass>
+                    <mainClass>zakazky.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>
