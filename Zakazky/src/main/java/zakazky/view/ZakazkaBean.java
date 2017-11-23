@@ -5,6 +5,9 @@
  */
 package zakazky.view;
 
+import java.util.Map;
+import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
@@ -50,9 +53,8 @@ public class ZakazkaBean {
 //    @PostConstruct
 //    void init() {
 //        FacesContext fc = FacesContext.getCurrentInstance();
-//        ExternalContext ec = fc.getExternalContext();
-//        HttpServletRequest r = (HttpServletRequest)ec.getRequest();
-//        int id = Integer.valueOf(r.getParameter("id"));
+//        Map<String, String> rm = fc.getExternalContext().getRequestParameterMap();
+//        int id = Integer.valueOf(rm.get("id"));
 //        setZakazka(getZakazkyDAO().get(id));
 //    }
     
