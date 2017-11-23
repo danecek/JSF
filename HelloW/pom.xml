@@ -7,7 +7,7 @@
         <version>1.5.8.RELEASE</version>
     </parent>
     <groupId>edu</groupId>
-    <artifactId>JSFOnSpring</artifactId>
+    <artifactId>HelloW</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
@@ -103,5 +103,5 @@
 
         <!-- plugins... -->
     </build>
-    <name>JSFOnSpring</name>
+    <name>HelloW</name>
 </project>

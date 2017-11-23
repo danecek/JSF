@@ -1,11 +1,11 @@
 package jsfonspring;
 
-import javax.faces.bean.ManagedBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
-@ManagedBean
 @Component
+@RequestScope
 public class HelloWorldBean {
 
     @Autowired
