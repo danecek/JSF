@@ -13,6 +13,22 @@ import org.springframework.web.context.annotation.SessionScope;
 public class LoginBean {
 
     /**
+     * @return the user
+     */
+    public String getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    private String user;
+
+    /**
      * @return the A
      */
     public static String getA() {
@@ -41,7 +57,16 @@ public class LoginBean {
     }
 
     private static String A = "anonym";
-    private String logged  = A;
-    
-    
+    private String logged = A;
+
+    public String login() {
+        logged = user;
+        return "index";
+    }
+
+    public String logout() {
+        logged = A;
+        return "index";
+    }
+
 }
