@@ -17,6 +17,15 @@
         <c:forEach var="z" items="#{indexBean.zakazky}">
             <h:outputText value="#{z}"/><br/>
         </c:forEach>
+        <h:panelGrid columns="2">
+            <h:form>
+                <h:commandButton value="Logout" action="#{loginBean.logout()}" 
+                                 rendered="#{not loginBean.anonym}"/> 
+            </h:form>
+
+            <h:button value = "Login" outcome="login" rendered="#{loginBean.anonym}"/>  
+        </h:panelGrid>
+
 
     </h:body>
 

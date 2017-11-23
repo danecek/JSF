@@ -61,12 +61,17 @@ public class LoginBean {
 
     public String login() {
         logged = user;
-        return "index";
+        user=null;
+        return "home";
     }
 
     public String logout() {
         logged = A;
         return "index";
+    }
+
+    public boolean isAnonym() {
+        return A.equals(logged);
     }
 
 }
