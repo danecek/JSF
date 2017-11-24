@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="user" value="User:"/>
+                        <h:inputText id = "user" value="#{loginBean.user}" required="true" 
+                                     requiredMessage="empty user"/>
+                        <h:message for="user" style="color:red"/>
+                        <h:commandButton value = "Log" action="#{loginBean.login()}"/>
+                    </h:panelGrid>
+
+                </h:form>
+            </ui:define></ui:composition>
+    </body>
+</html>
+
