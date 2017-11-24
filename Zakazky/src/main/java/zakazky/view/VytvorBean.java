@@ -14,6 +14,12 @@ import zakazky.model.ZakazkyDAO;
 @RequestScope
 public class VytvorBean {
 
+    @Inject
+    IndexBean indexBean;
+
+    @Inject
+    ZakazkyDAO zakazkyDAO;
+
     /**
      * @return the popis
      */
@@ -28,17 +34,13 @@ public class VytvorBean {
         this.popis = popis;
     }
 
-    @Inject
-    ZakazkyDAO zakazkyDAO;
-    
     private String popis;
-    
+
     public String create() {
         zakazkyDAO.vytvor(popis);
+        indexBean.setZakazky(null);
         return "home";
-        
+
     }
-    
-    
 
 }

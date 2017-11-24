@@ -22,8 +22,8 @@ public class ValidatorPopis implements Validator {
     @Override
     public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
         String popis = (String) o;
-        if (!popis.startsWith("P")) {
-            throw new ValidatorException(new FacesMessage("musi zacit: P"));
+        if (popis.length() < 3) {
+            throw new ValidatorException(new FacesMessage("Chyba: (< 3)"));
         }
 
     }

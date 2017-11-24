@@ -13,13 +13,18 @@
 
                 <h:form>
                     <h:panelGrid columns="3">
-                        <h:outputLabel for="user" value="User:"/>
-                        <h:inputText id = "user" value="#{loginBean.user}" required="true" 
-                                     requiredMessage="empty user">
-                            <f:ajax event="keyup" render="usermess"/>
-                        </h:inputText>
-                        <h:message id = "usermess" for="user" style="color:red"/>
-                        <h:commandButton value = "Log" action="#{loginBean.login()}"/>
+                        <h:outputLabel for="user" value="Passw:"/>
+                        <h:inputSecret id = "passw" value="#{registerBean.password}" required="true" 
+                                       requiredMessage="empty passw">
+
+                        </h:inputSecret>
+                        <h:inputSecret id = "passw2" value="#{registerBean.password2}" required="true" 
+                                       requiredMessage="empty passw">
+
+                        </h:inputSecret>
+                        <h:messages id = "usermess" style="color:red"/>
+                        <h:commandButton value = "Log" 
+                                         action="#{registerBean.register()}"/>
                     </h:panelGrid>
 
                 </h:form>

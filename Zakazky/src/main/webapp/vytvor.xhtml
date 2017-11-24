@@ -8,18 +8,25 @@
         <title>Login</title>
     </head>
     <body>
-        <ui:composition template="./tableTemplate.xhtml">
+        <ui:composition template="./zakazkyTemplate.xhtml">
             <ui:define name="content">
                 <h:form>
                     <h:panelGrid columns="3">
                         <h:outputLabel for="popis" value="Popis:"/>
                         <h:inputText id = "popis" value="#{vytvorBean.popis}"
-                                     validatorMessage="musi zacit 'P'">
+                                     validatorMessage="musi zacit 'P'"
+                                     required="true">
+                            <f:ajax event = "keyup" render="popismess"/>
                             <!-- f:validateLength minimum="3"/-->
                             <f:validator validatorId="zakazky.model.ValidatorPopis"/>
                         </h:inputText>
-                        <h:message for="popis" style="color:red"/>
-                        <h:commandButton value = "Vytvor" action="#{vytvorBean.create()}"/>
+                        <h:message id="popismess" for="popis" style="color:red"/>
+                        <h:panelGrid columns="2">
+                            <h:commandButton value = "Vytvor" action="#{vytvorBean.create()}"/>
+                            <h:commandButton value = "Zrus" action="home" immediate="true"/>
+                            <h:button value = "Zrus" outcome="home" />
+                        </h:panelGrid>
+
                     </h:panelGrid>
                 </h:form>
             </ui:define></ui:composition>

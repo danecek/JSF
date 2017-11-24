@@ -9,25 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 import zakazky.model.Zakazka;
 import zakazky.model.ZakazkyDAO;
 
 @Component
-@RequestScope
+@SessionScope
 public class IndexBean {
-    
-   // private List<Zakazka> zakazky;
-    
+
+    private List<Zakazka> zakazky;
+
     @Inject
     ZakazkyDAO zakazkyDAO;
 
     public List<Zakazka> getZakazky() {
-        return new ArrayList<>(zakazkyDAO.vsechny());
+        if (zakazky == null)
+            zakazky = new ArrayList<>(zakazkyDAO.vsechny());
+        return zakazky;
     }
 
-//    public void setZakazky(List<Zakazka> zakazky) {
-//        this.zakazky = zakazky;
-//    }
-    
+    public void setZakazky(List<Zakazka> zakazky) {
+        this.zakazky = zakazky;
+    }
+
 }
